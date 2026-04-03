@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>롬핑엔젤 | Romping Angel — 캐릭터 소개서</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap');
+
+:root {
+  --warm-cream: #FDF8F0;
+  --soft-yellow: #F5E6B8;
+  --golden: #D4A843;
+  --warm-brown: #6B4E3D;
+  --dark-brown: #3E2C23;
+  --soft-beige: #EDE4D3;
+  --rain-blue: #A8C5D6;
+  --light-rain: #D6E8F0;
+  --text-main: #3E2C23;
+  --text-sub: #7A6555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text-main);
+  background: var(--warm-cream);
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.15);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  box-shadow: 0 2px 20px rgba(62, 44, 35, 0.08);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--warm-brown);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo span {
+  color: var(--golden);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-sub);
+  font-size: 0.88rem;
+  font-weight: 400;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.nav-links a:hover {
+  color: var(--golden);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(245, 230, 184, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(168, 197, 214, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Rain animation */
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(transparent, rgba(168, 197, 214, 0.3));
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--golden);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--dark-brown);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 .accent {
+  color: var(--golden);
+}
+
+.hero-sub {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  color: var(--text-sub);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-sub);
+  max-width: 520px;
+  line-height: 1.85;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 780px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(62, 44, 35, 0.12);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.01);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 100px 32px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--golden);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--dark-brown);
+  line-height: 1.35;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.section-desc {
+  font-size: 1.02rem;
+  color: var(--text-sub);
+  max-width: 600px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+/* ===== ABOUT / CHARACTER ===== */
+.about {
+  background: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(62, 44, 35, 0.08);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--text-sub);
+  font-weight: 300;
+}
+
+.char-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.char-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--soft-beige);
+  color: var(--warm-brown);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+/* ===== STRENGTHS ===== */
+.strengths {
+  background: var(--warm-cream);
+}
+
+.strength-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.strength-card {
+  background: white;
+  border-radius: 16px;
+  padding: 36px 28px;
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  transition: all 0.3s ease;
+}
+
+.strength-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(62, 44, 35, 0.08);
+  border-color: rgba(212, 168, 67, 0.25);
+}
+
+.strength-icon {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.strength-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin-bottom: 10px;
+}
+
+.strength-card p {
+  font-size: 0.92rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ===== PRODUCT SHOWCASE ===== */
+.showcase {
+  background: white;
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.showcase-header .section-desc {
+  margin: 0 auto;
+  margin-top: 16px;
+}
+
+/* Category tabs */
+.cat-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.cat-tab {
+  padding: 8px 20px;
+  border: 1px solid var(--soft-beige);
+  background: transparent;
+  border-radius: 50px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cat-tab:hover, .cat-tab.active {
+  background: var(--golden);
+  color: white;
+  border-color: var(--golden);
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16/9;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(62, 44, 35, 0.7));
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.overlay-desc {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  font-weight: 300;
+}
+
+/* Featured large item */
+.gallery-item.featured {
+  grid-column: span 2;
+}
+
+/* ===== MORE PRODUCTS ===== */
+.more-products {
+  background: var(--warm-cream);
+}
+
+.more-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.more-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.more-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== EXPRESSIONS ===== */
+.expressions {
+  background: white;
+  text-align: center;
+}
+
+.expressions-img {
+  width: 100%;
+  max-width: 900px;
+  margin: 48px auto 0;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(62, 44, 35, 0.08);
+}
+
+/* ===== COLLABORATION CTA ===== */
+.collab {
+  background: linear-gradient(135deg, var(--dark-brown) 0%, var(--warm-brown) 100%);
+  color: white;
+  text-align: center;
+  padding: 100px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.collab::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(212, 168, 67, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.collab .section-label {
+  color: var(--soft-yellow);
+}
+
+.collab .section-title {
+  color: white;
+  margin-bottom: 24px;
+}
+
+.collab-desc {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.collab-features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.collab-feature {
+  text-align: center;
+}
+
+.collab-feature-icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.collab-feature-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.collab-feature-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 4px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark-brown);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 40px 32px;
+  font-size: 0.82rem;
+  font-weight: 300;
+}
+
+footer .footer-logo {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .strength-cards {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery-item.featured {
+    grid-column: span 2;
+  }
+  .more-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item.featured {
+    grid-column: span 1;
+  }
+  .more-gallery {
+    grid-template-columns: 1fr;
+  }
+  section {
+    padding: 64px 20px;
+  }
+  .hero {
+    padding: 100px 20px 60px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>Romping</span>Angel</a>
+    <ul class="nav-links">
+      <li><a href="#about">캐릭터 소개</a></li>
+      <li><a href="#strengths">브랜딩 강점</a></li>
+      <li><a href="#showcase">제품 쇼케이스</a></li>
+      <li><a href="#expressions">표정 & 포즈</a></li>
+      <li><a href="#collab">콜라보 제안</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="rain-container" id="rainContainer"></div>
+  <div class="hero-badge">CHARACTER BRAND PORTFOLIO</div>
+  <h1>빗속을 뛰노는 작은 천사,<br><span class="accent">롬핑엔젤</span></h1>
+  <p class="hero-sub">ROMPING ANGEL</p>
+  <p class="hero-desc">
+    노란 레인코트를 입고 우산을 들고 빗속을 신나게 뛰어다니는 아이.<br>
+    비 오는 날의 설렘과 순수한 기쁨을 담은 캐릭터입니다.
+  </p>
+  <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/char_sheet.jpg" alt="롬핑엔젤 캐릭터 시트" class="hero-image">
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">CHARACTER</div>
+    <div class="section-title reveal">롬핑엔젤을 소개합니다</div>
+    <div class="about-grid">
+      <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/lifestyle.jpg" alt="롬핑엔젤 라이프스타일 목업" class="about-image reveal">
+      <div class="about-content reveal">
+        <p>
+          <strong>롬핑엔젤(Romping Angel)</strong>은 비 오는 날을 가장 좋아하는 아이입니다.
+          노란 레인코트에 빨간 장화를 신고, 우산을 들고 물웅덩이를 첨벙첨벙 뛰어다니는 모습이 트레이드마크예요.
+        </p>
+        <p>
+          누구나 어린 시절 비 오는 날 밖에 나가 놀고 싶었던 그 설렘, 물웅덩이를 밟았을 때의 짜릿함,
+          빗소리를 들으며 느끼는 포근함 — 롬핑엔젤은 그 순수한 감정을 떠올리게 합니다.
+        </p>
+        <p>
+          손그림 스타일의 따뜻한 선화로 표현되어, 어디에 적용해도 자연스럽고 정감 있는 느낌을 줍니다.
+          다양한 표정과 포즈를 갖추고 있어 제품 적용의 폭이 넓습니다.
+        </p>
+        <div class="char-tags">
+          <span class="char-tag">비 오는 날</span>
+          <span class="char-tag">노란 레인코트</span>
+          <span class="char-tag">우산</span>
+          <span class="char-tag">빨간 장화</span>
+          <span class="char-tag">물웅덩이</span>
+          <span class="char-tag">손그림 스타일</span>
+          <span class="char-tag">순수한 감성</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="strengths" id="strengths">
+  <div class="section-inner">
+    <div class="section-label reveal">BRAND VALUE</div>
+    <div class="section-title reveal">콜라보가 기대되는 이유</div>
+    <div class="section-desc reveal">롬핑엔젤이 브랜드와 만났을 때 만들어낼 수 있는 가치입니다.</div>
+    <div class="strength-cards">
+      <div class="strength-card reveal">
+        <div class="strength-icon">🌧️</div>
+        <h3>사계절 중 '비'라는 독보적 테마</h3>
+        <p>대부분의 캐릭터가 맑은 날, 꽃, 동물을 테마로 하는 반면, 롬핑엔젤은 '비 오는 날'이라는 감성적이면서도 차별화된 테마를 가집니다. 우산, 레인코트, 장화 등 시즌 제품과의 자연스러운 연결이 가능합니다.</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-icon">✏️</div>
+        <h3>손그림 감성의 높은 적용성</h3>
+        <p>깔끔한 선화 스타일은 도자기, 패브릭, 문구, 의류 등 어떤 소재 위에 올려도 자연스럽습니다. 모노톤부터 컬러 버전까지 다양한 변형이 가능해 제품 톤앤매너에 맞춘 유연한 적용이 가능합니다.</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-icon">😊</div>
+        <h3>풍부한 표정과 포즈 라인업</h3>
+        <p>기쁨, 놀람, 졸림, 장난스러움 등 15가지 이상의 표정과 다양한 포즈를 보유하고 있습니다. 이모티콘, 스티커, 시리즈 제품 등 다양한 라인업 전개가 가능합니다.</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-icon">👶</div>
+        <h3>전 연령대에 사랑받는 캐릭터</h3>
+        <p>아이들에게는 귀엽고 친근한 친구로, 어른들에게는 어린 시절의 향수를 자극하는 캐릭터로 다가갑니다. 키즈 제품부터 성인 라이프스타일 제품까지 폭넓은 타겟팅이 가능합니다.</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-icon">🎨</div>
+        <h3>모노톤 & 컬러 이중 활용</h3>
+        <p>흑백 선화 버전은 내추럴하고 고급스러운 느낌을, 컬러 버전은 밝고 따뜻한 느낌을 줍니다. 브랜드 성격에 따라 두 가지 버전을 자유롭게 선택할 수 있어 활용도가 높습니다.</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-icon">🌿</div>
+        <h3>자연 친화적 브랜드와의 시너지</h3>
+        <p>비, 자연, 순수함이라는 캐릭터 DNA는 친환경 브랜드, 오가닉 브랜드, 키즈 브랜드 등과 높은 시너지를 발휘합니다. 브랜드의 따뜻한 이미지를 자연스럽게 강화합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Showcase -->
+<section class="showcase" id="showcase">
+  <div class="section-inner">
+    <div class="showcase-header">
+      <div class="section-label reveal">PRODUCT SHOWCASE</div>
+      <div class="section-title reveal">이렇게 적용할 수 있어요</div>
+      <div class="section-desc reveal">롬핑엔젤이 다양한 제품에 적용된 모습입니다. 실제 제품 목업을 통해 콜라보의 가능성을 확인해보세요.</div>
+    </div>
+
+    <div class="cat-tabs reveal">
+      <button class="cat-tab active" onclick="filterGallery('all')">전체</button>
+      <button class="cat-tab" onclick="filterGallery('life')">라이프스타일</button>
+      <button class="cat-tab" onclick="filterGallery('fashion')">패션 · 잡화</button>
+      <button class="cat-tab" onclick="filterGallery('home')">홈 · 리빙</button>
+      <button class="cat-tab" onclick="filterGallery('kids')">키즈</button>
+      <button class="cat-tab" onclick="filterGallery('stationery')">문구 · 소품</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <div class="gallery-item featured" data-cat="life" onclick="openLightbox(0)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/tableware.jpg" alt="테이블웨어">
+        <div class="overlay">
+          <div class="overlay-title">테이블웨어 컬렉션</div>
+          <div class="overlay-desc">머그컵 · 볼 · 플레이트</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="fashion" onclick="openLightbox(1)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/fashion.jpg" alt="패션 아이템">
+        <div class="overlay">
+          <div class="overlay-title">패션 아이템</div>
+          <div class="overlay-desc">토트백 · 티셔츠 · 폰케이스</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="life" onclick="openLightbox(2)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/rainy_collection.jpg" alt="레이니데이 컬렉션">
+        <div class="overlay">
+          <div class="overlay-title">레이니데이 컬렉션</div>
+          <div class="overlay-desc">우산 · 장화 · 레인코트 · 텀블러</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="fashion" onclick="openLightbox(3)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/outdoor.jpg" alt="아웃도어">
+        <div class="overlay">
+          <div class="overlay-title">아웃도어 라인</div>
+          <div class="overlay-desc">레인코트 · 투명우산 · 토트백</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="stationery" onclick="openLightbox(4)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/accessories.jpg" alt="액세서리">
+        <div class="overlay">
+          <div class="overlay-title">액세서리 & 소품</div>
+          <div class="overlay-desc">키링 · 스티커 · 패브릭 포스터</div>
+        </div>
+      </div>
+      <div class="gallery-item featured" data-cat="fashion" onclick="openLightbox(5)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/apparel.jpg" alt="어패럴">
+        <div class="overlay">
+          <div class="overlay-title">어패럴 컬렉션</div>
+          <div class="overlay-desc">티셔츠 · 토트백 · 쿠션 · 핀배지</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="home" onclick="openLightbox(6)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/home_deco.jpg" alt="홈데코">
+        <div class="overlay">
+          <div class="overlay-title">홈 데코</div>
+          <div class="overlay-desc">쿠션 · 코스터 · 후드타올 · 마스킹테이프</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="stationery" onclick="openLightbox(7)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/stationery.jpg" alt="문구">
+        <div class="overlay">
+          <div class="overlay-title">문구 컬렉션</div>
+          <div class="overlay-desc">토트백 · 파우치 · 캘린더 · 마스킹테이프</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="kids" onclick="openLightbox(8)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/kids.jpg" alt="키즈">
+        <div class="overlay">
+          <div class="overlay-title">키즈 라인</div>
+          <div class="overlay-desc">백팩 · 쿠션 · 감정카드 · 보드게임</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="kids" onclick="openLightbox(9)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/kids_everyday.jpg" alt="키즈 백">
+        <div class="overlay">
+          <div class="overlay-title">키즈 에브리데이</div>
+          <div class="overlay-desc">백팩 · 스티커시트 · 토트백</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="fashion" onclick="openLightbox(10)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/fashion_socks.jpg" alt="패션 소품">
+        <div class="overlay">
+          <div class="overlay-title">패션 소품</div>
+          <div class="overlay-desc">양말 · 마스킹테이프 · 스티커 · 스탬프</div>
+        </div>
+      </div>
+      <div class="gallery-item featured" data-cat="home" onclick="openLightbox(11)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/bedroom.jpg" alt="침실">
+        <div class="overlay">
+          <div class="overlay-title">침실 & 아웃도어</div>
+          <div class="overlay-desc">이불세트 · 장화 · 피크닉매트</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="home" onclick="openLightbox(12)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/kitchen.jpg" alt="키친">
+        <div class="overlay">
+          <div class="overlay-title">키친 & 리빙</div>
+          <div class="overlay-desc">담요 · 런치박스 · 앞치마 · 물병</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="life" onclick="openLightbox(13)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/eco.jpg" alt="에코 라인">
+        <div class="overlay">
+          <div class="overlay-title">에코 라인</div>
+          <div class="overlay-desc">코스터 · 토트백 · 도마 · 캐니스터</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="stationery" onclick="openLightbox(14)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/craft.jpg" alt="크래프트">
+        <div class="overlay">
+          <div class="overlay-title">크래프트 & 핀</div>
+          <div class="overlay-desc">벽시계 · 에나멜핀 · 스티커 · 원단</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="kids" onclick="openLightbox(15)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/nursery.jpg" alt="너서리">
+        <div class="overlay">
+          <div class="overlay-title">너서리 컬렉션</div>
+          <div class="overlay-desc">이불 · 후드타올 · 피크닉매트 · 가랜드</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="home" onclick="openLightbox(16)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/artisan.jpg" alt="아르티잔">
+        <div class="overlay">
+          <div class="overlay-title">아르티잔 라인</div>
+          <div class="overlay-desc">도자기함 · 자수 · 피규어 · 퍼즐</div>
+        </div>
+      </div>
+      <div class="gallery-item featured" data-cat="life" onclick="openLightbox(17)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/full_collection.jpg" alt="컬렉션">
+        <div class="overlay">
+          <div class="overlay-title">풀 컬렉션</div>
+          <div class="overlay-desc">앞치마 · 토트백 · 티셔츠 · 이불 · 아이스크림틀</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="life" onclick="openLightbox(18)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/variety.jpg" alt="다양한 제품">
+        <div class="overlay">
+          <div class="overlay-title">데일리 에센셜</div>
+          <div class="overlay-desc">담요 · 필통 · 키링 · 마우스패드 · 달력</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="kids" onclick="openLightbox(19)">
+        <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/colorful_kids.jpg" alt="컬러풀 키즈">
+        <div class="overlay">
+          <div class="overlay-title">컬러풀 키즈</div>
+          <div class="overlay-desc">런치박스 · 인형 · 담요 · 토트백</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expressions -->
+<section class="expressions" id="expressions">
+  <div class="section-inner">
+    <div class="section-label reveal">EXPRESSIONS & POSES</div>
+    <div class="section-title reveal">다양한 표정과 포즈</div>
+    <div class="section-desc reveal" style="margin: 0 auto;">
+      15가지 이상의 감정 표현과 다양한 포즈를 갖추고 있어,<br>
+      이모티콘, 스티커, 시리즈 제품 등 다양한 형태로 확장할 수 있습니다.
+    </div>
+    <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/expressions.jpg" alt="롬핑엔젤 표정과 포즈" class="expressions-img reveal">
+  </div>
+</section>
+
+<!-- Collaboration CTA -->
+<section class="collab" id="collab">
+  <div class="section-inner" style="position: relative; z-index: 1;">
+    <div class="section-label reveal">COLLABORATION</div>
+    <div class="section-title reveal">롬핑엔젤과 함께<br>특별한 제품을 만들어보세요</div>
+    <p class="collab-desc reveal">
+      비 오는 날의 따뜻한 감성을 담은 롬핑엔젤은<br>
+      다양한 브랜드와의 콜라보를 기다리고 있습니다.<br>
+      제품 기획부터 디자인 적용까지 함께 합니다.
+    </p>
+    <div class="collab-features reveal">
+      <div class="collab-feature">
+        <div class="collab-feature-icon">📦</div>
+        <div class="collab-feature-title">제품 라이선싱</div>
+        <div class="collab-feature-text">캐릭터 사용권 제공</div>
+      </div>
+      <div class="collab-feature">
+        <div class="collab-feature-icon">🎨</div>
+        <div class="collab-feature-title">맞춤 디자인</div>
+        <div class="collab-feature-text">브랜드 맞춤 일러스트</div>
+      </div>
+      <div class="collab-feature">
+        <div class="collab-feature-icon">📋</div>
+        <div class="collab-feature-title">기획 협업</div>
+        <div class="collab-feature-text">제품 기획 단계부터 참여</div>
+      </div>
+      <div class="collab-feature">
+        <div class="collab-feature-icon">🔄</div>
+        <div class="collab-feature-title">시리즈 전개</div>
+        <div class="collab-feature-text">시즌별 연속 기획 가능</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">Romping Angel</div>
+  <p>&copy; 2026 롬핑엔젤. All rights reserved.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+  <img id="lightboxImg" src="" alt="확대 보기">
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+</div>
+
+<script>
+// Rain animation
+const rainContainer = document.getElementById('rainContainer');
+function createRaindrops() {
+  for (let i = 0; i < 40; i++) {
+    const drop = document.createElement('div');
+    drop.className = 'raindrop';
+    drop.style.left = Math.random() * 100 + '%';
+    drop.style.height = Math.random() * 20 + 10 + 'px';
+    drop.style.animationDuration = Math.random() * 2 + 2 + 's';
+    drop.style.animationDelay = Math.random() * 4 + 's';
+    rainContainer.appendChild(drop);
+  }
+}
+createRaindrops();
+
+// Scroll effects
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Gallery filter
+function filterGallery(cat) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Lightbox
+const galleryImages = [];
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  galleryImages.push(img.src);
+});
+
+let currentLightboxIndex = 0;
+
+function openLightbox(index) {
+  currentLightboxIndex = index;
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  img.src = galleryImages[index];
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navigateLightbox(dir) {
+  event.stopPropagation();
+  currentLightboxIndex = (currentLightboxIndex + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lightboxImg').src = galleryImages[currentLightboxIndex];
+}
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigateLightbox(-1);
+  if (e.key === 'ArrowRight') navigateLightbox(1);
+});
+</script>
+</body>
+</html>
