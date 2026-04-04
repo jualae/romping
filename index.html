@@ -130,6 +130,7 @@ nav.scrolled {
   bottom: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 2;
 }
 
 .raindrop {
@@ -219,6 +220,11 @@ nav.scrolled {
   position: relative;
   z-index: 1;
   transition: transform 0.4s ease;
+}
+
+/* 텍스트는 빗방울 위에 */
+.hero-badge, .hero h1, .hero-sub, .hero-desc {
+  z-index: 3;
 }
 
 .hero-image:hover {
