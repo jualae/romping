@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>롬핑엔젤 | Romping Angel — 캐릭터 소개서</title>
+<title>[V01-1] 롬핑엔젤 | 클린 히어로</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap');
 
@@ -100,12 +100,42 @@ nav.scrolled {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 120px 32px 80px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 60px 72px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.0) 40%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hero::before {
@@ -162,73 +192,135 @@ nav.scrolled {
 
 .hero-badge {
   display: inline-block;
-  background: rgba(212, 168, 67, 0.12);
-  color: var(--golden);
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  font-weight: 400;
+  padding: 5px 16px;
   border-radius: 50px;
-  margin-bottom: 28px;
-  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 .hero h1 {
   font-family: 'Noto Serif KR', serif;
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
   font-weight: 900;
-  color: var(--dark-brown);
+  color: #fff;
   line-height: 1.2;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   position: relative;
-  z-index: 1;
-  letter-spacing: -0.03em;
+  z-index: 3;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
 }
 
 .hero h1 .accent {
-  color: var(--golden);
+  color: var(--soft-yellow);
 }
 
 .hero-sub {
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1rem;
-  color: var(--text-sub);
-  letter-spacing: 0.15em;
-  margin-bottom: 24px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.2em;
+  margin-bottom: 0;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   font-weight: 300;
 }
 
-.hero-desc {
-  font-size: 1.1rem;
-  color: var(--text-sub);
-  max-width: 520px;
-  line-height: 1.85;
-  margin-bottom: 48px;
-  position: relative;
-  z-index: 1;
-  font-weight: 300;
-}
-
-.hero-image {
-  width: 100%;
-  max-width: 780px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(62, 44, 35, 0.12);
-  position: relative;
-  z-index: 1;
-  transition: transform 0.4s ease;
+/* hero-desc는 히어로 밖으로 빠짐 — 히어로 안에서는 숨김 */
+.hero .hero-desc {
+  display: none;
 }
 
 /* 텍스트는 빗방울 위에 */
-.hero-badge, .hero h1, .hero-sub, .hero-desc {
+.hero-badge, .hero h1, .hero-sub {
   z-index: 3;
 }
 
-.hero-image:hover {
-  transform: scale(1.01);
+/* ===== 히어로 하단 인트로 섹션 ===== */
+.hero-intro {
+  background: var(--warm-cream);
+  padding: 72px 60px 80px;
+}
+
+.hero-intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-intro-text .intro-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--golden);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-intro-text h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--dark-brown);
+  line-height: 1.35;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-intro-text p {
+  font-size: 1rem;
+  color: var(--text-sub);
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 480px;
+}
+
+.hero-intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.intro-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--soft-beige);
+  color: var(--warm-brown);
+  border-radius: 50px;
+  font-size: 0.82rem;
+}
+
+.hero-intro-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(62, 44, 35, 0.1);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .hero-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-intro {
+    padding: 56px 28px 64px;
+  }
+  .hero {
+    padding: 0 28px 56px;
+  }
 }
 
 /* ===== SECTIONS ===== */
@@ -716,7 +808,11 @@ footer .footer-logo {
   }
   .hero h1 {
     word-break: keep-all;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+  }
+  .hero {
+    align-items: flex-start;
+    padding: 0 24px 48px;
   }
 }
 </style>
@@ -739,16 +835,34 @@ footer .footer-logo {
 
 <!-- Hero -->
 <section class="hero" id="hero">
+  <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/hero_web.jpg" alt="롬핑엔젤 캐릭터 시트" class="hero-bg">
+  <div class="hero-overlay"></div>
   <div class="rain-container" id="rainContainer"></div>
-  <div class="hero-badge">CHARACTER BRAND PORTFOLIO</div>
-  <h1>빗속을 뛰노는 작은 천사,<br><span class="accent">롬핑엔젤</span></h1>
-  <p class="hero-sub">ROMPING ANGEL</p>
-  <p class="hero-desc">
-    노란 레인코트를 입고 우산을 들고 빗속을 신나게 뛰어다니는 아이.<br>
-    비 오는 날의 설렘과 순수한 기쁨을 담은 캐릭터입니다.
-  </p>
-  <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/hero_web.jpg" alt="롬핑엔젤 캐릭터 시트" class="hero-image">
+  <div class="hero-content">
+    <div class="hero-badge">CHARACTER BRAND PORTFOLIO</div>
+    <h1>비 오는 날의<br>작은 <span class="accent">천사</span></h1>
+    <p class="hero-sub">ROMPING ANGEL</p>
+  </div>
 </section>
+
+<!-- Hero Intro — 히어로 바로 아래 캐릭터 소개 -->
+<div class="hero-intro">
+  <div class="hero-intro-inner">
+    <div class="hero-intro-text reveal">
+      <p class="intro-label">CHARACTER</p>
+      <h2>빗속을 뛰노는<br>작은 천사, 롬핑엔젤</h2>
+      <p>노란 레인코트를 입고 우산을 들고 빗속을 신나게 뛰어다니는 아이. 비 오는 날의 설렘과 순수한 기쁨을 담은 캐릭터입니다.<br><br>누구나 어린 시절 빗속을 뛰어다니던 그 설렘을, 롬핑엔젤은 다시 불러옵니다.</p>
+      <div class="hero-intro-tags">
+        <span class="intro-tag">비 오는 날</span>
+        <span class="intro-tag">노란 레인코트</span>
+        <span class="intro-tag">우산</span>
+        <span class="intro-tag">순수한 감성</span>
+        <span class="intro-tag">손그림 스타일</span>
+      </div>
+    </div>
+    <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/lifestyle.jpg" alt="롬핑엔젤 라이프스타일" class="hero-intro-img reveal">
+  </div>
+</div>
 
 <!-- About -->
 <section class="about" id="about">
