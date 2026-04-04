@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>[V01-1] 롬핑엔젤 | 클린 히어로</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&&display=swap');
 
 :root {
   --warm-cream: #FDF8F0;
@@ -66,7 +66,7 @@ nav.scrolled {
 .nav-logo {
   font-family: 'Noto Serif KR', serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--warm-brown);
   text-decoration: none;
   letter-spacing: -0.02em;
@@ -271,11 +271,22 @@ nav.scrolled {
 .hero-intro-text h2 {
   font-family: 'Noto Serif KR', serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--dark-brown);
   line-height: 1.35;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
+}
+
+/* 롬핑엔젤 브랜드명 전용 스타일 */
+.brand-name {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  background: linear-gradient(135deg, #D4960A 0%, #E8B84B 40%, #F5C842 70%, #C8860A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
 }
 
 .hero-intro-text p {
@@ -345,7 +356,7 @@ section {
 .section-title {
   font-family: 'Noto Serif KR', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--dark-brown);
   line-height: 1.35;
   margin-bottom: 20px;
@@ -442,7 +453,7 @@ section {
 
 .strength-card h3 {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--dark-brown);
   margin-bottom: 10px;
 }
@@ -850,7 +861,7 @@ footer .footer-logo {
   <div class="hero-intro-inner">
     <div class="hero-intro-text reveal">
       <p class="intro-label">CHARACTER</p>
-      <h2>빗속을 뛰노는<br>작은 천사, 롬핑엔젤</h2>
+      <h2>빗속을 뛰노는<br>작은 천사, <span class="brand-name">롬핑엔젤</span></h2>
       <p>노란 레인코트를 입고 우산을 들고 빗속을 신나게 뛰어다니는 아이. 비 오는 날의 설렘과 순수한 기쁨을 담은 캐릭터입니다.<br><br>누구나 어린 시절 빗속을 뛰어다니던 그 설렘을, 롬핑엔젤은 다시 불러옵니다.</p>
       <div class="hero-intro-tags">
         <span class="intro-tag">비 오는 날</span>
@@ -868,7 +879,7 @@ footer .footer-logo {
 <section class="about" id="about">
   <div class="section-inner">
     <div class="section-label reveal">CHARACTER</div>
-    <div class="section-title reveal">롬핑엔젤을 소개합니다</div>
+    <div class="section-title reveal"><span class="brand-name">롬핑엔젤</span>을 소개합니다</div>
     <div class="about-grid">
       <img src="https://pub-300c7785e65c4db1be91713e865cb668.r2.dev/images/lifestyle.jpg" alt="롬핑엔젤 라이프스타일 목업" class="about-image reveal">
       <div class="about-content reveal">
